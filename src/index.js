@@ -114,15 +114,6 @@ class ReactFlagsSelect extends Component {
 			return countries[country] ;
 		});
 
-		//Filter BlackList
-		if (this.props.blackList && selectCountries) {
-			selectCountries = fullCountries.filter(countryKey =>{
-					return selectCountries.filter(country =>{
-						return countryKey === country;
-					}).length === 0
-			});
-		}
-
 		this.setState({
 			countries: selectCountries || fullCountries
 		}, ()=> {
@@ -140,7 +131,7 @@ class ReactFlagsSelect extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if (prevProps.countries !== this.props.countries || prevProps.blackList !== this.props.blackList) {
+		if (prevProps.countries !== this.props.countries) {
 			this.setCountries(this.state.selected);
 		}
 	}
@@ -210,14 +201,12 @@ ReactFlagsSelect.defaultProps = {
 	alignOptions: "right",
 	customLabels: {},
 	disabled: false,
-	blackList: false,
 	searchable: false,
 	searchPlaceholder: 'Search',
 }
 
 ReactFlagsSelect.propTypes = {
 	countries: PropTypes.array,
-	blackList: PropTypes.bool,
 	customLabels: PropTypes.object,
 	selectedSize: PropTypes.number,
 	optionsSize: PropTypes.number,

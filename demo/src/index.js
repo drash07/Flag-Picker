@@ -23,7 +23,7 @@ class Demo extends React.Component {
 	  }
 
 	handleSelectCountryItem = (item) => {
-		this.setState({continent: item});
+		this.setState({selectCode: item});
 		// this.forceUpdate();
 	}  
 
@@ -54,13 +54,9 @@ class Demo extends React.Component {
 		return (
 			<div>
 				<div className="header">
-					<span className="title">React Flags Select</span>
+					<span className="title">React Flag Picker</span>
 				</div>
-				<div className="main">
-					<p className="info">A customizable svg flags select components for React Js.</p>
-					<div className="section-header">
-						<span>Examples</span> 
-					</div>
+				<div className="main">					
 					<hr />
 					<div className="demo-group">
 						<span>Continent</span>
@@ -100,20 +96,10 @@ class Demo extends React.Component {
 						countries={this.renderSwitch(this.state.continent)}
 						onSelect={this.handleSelectCountryItem}/>
 					</div>
-					<div>
-      
-     				</div>
-					
-					<div>
-
-
-    </div>
 				</div>
 			</div>
 		)
 	}
 }
-
-
 
 render(<Demo/>, document.querySelector('#demo'))
